@@ -1,6 +1,9 @@
 import React, { Component } from "react";
 import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import axios from "axios";
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faTrash, faSignOutAlt, faEdit } from "@fortawesome/free-solid-svg-icons";
 
 import "../style/main.scss"
 
@@ -21,6 +24,8 @@ import Peekaboo from "./practiceProjects/peekaboo";
 import AlignMe from "./practiceProjects/align-me";
 import Clock from "./practiceProjects/clock";
 import HTMLColor from "./practiceProjects/html-color";
+
+library.add(faTrash, faSignOutAlt, faEdit);
 
 export default class App extends Component {
   constructor(props) {
