@@ -2,56 +2,56 @@ import React, { Component } from "react";
 import axios from "axios";
 
 export default class BlogDetail extends Component {
-    constructor(props) {
-        super(props);
+  constructor(props) {
+    super(props);
 
-        this.state = {
-            currentId: this.props.match.params.slug,
-            blogItem: {}
-        }
-    }
-    
-    getBlogItem() {
-        axios
-        .get(
-            `https://brighamlind.devcamp.space/portfolio/portfolio_blogs/${this.state.currentId}`
-        )
-        .then(response => {
-            this.setState({
-                blogItem: response.data.portfolio_blog
-            })
-        })
-        .catch(error => {
-            console.log("getBlogItem error:", error)
-        })
-    }
+    this.state = {
+      currentId: this.props.match.params.slug,
+      blogItem: {}
+    };
+  }
 
-    componentDidMount() {
-        this.getBlogItem();
-    }
+  getBlogItem() {
+    axios
+      .get(
+        `https://brighamlind.devcamp.space/portfolio/portfolio_blogs/${
+          this.state.currentId
+        }`
+      )
+      .then(response => {
+        this.setState({
+          blogItem: response.data.portfolio_blog
+        });
+      })
+      .catch(error => {
+        console.log("getBlogItem error:", error);
+      });
+  }
 
-    render() {
-        const {
-            title,
-            content,
-            featured_image_url,
-            blog_status
-        } = this.state.blogItem
+  componentDidMount() {
+    this.getBlogItem();
+  }
 
-        return (
-            <div className="blog-container">
-                <div className="content-container">
-                    <h1>{title}</h1>
+  render() {
+    const {
+      title,
+      content,
+      featured_image_url,
+      blog_status
+    } = this.state.blogItem;
 
-                    <div className="featured-image-wrapper">
-                        <img src={featured_image_url} />
-                    </div>
+    return (
+      <div className="blog-container">
+        <div className="content-container">
+          <h1>{title}</h1>
 
-                    <div className="content">
-                        {content}
-                    </div>
-                </div>
-            </div>
-        )
-    }
+          <div className="featured-image-wrapper">
+            <img src={featured_image_url} />
+          </div>
+
+          <div className="content">{content}</div>
+        </div>
+      </div>
+    );
+  }
 }
