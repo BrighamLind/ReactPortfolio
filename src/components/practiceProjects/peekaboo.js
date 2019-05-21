@@ -1,36 +1,14 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class Peekaboo extends Component {
-    constructor() {
-        super();
+const Peekaboo = () => {
+    const [hidden, showHide] = useState(true);
 
-        this.state = {
-            display: 'none'
-        }
-
-        this.styles = {
-            display: 'flex',
-            justifyContent: 'center'
-        }
-    }
-
-    showHide = () => {
-        this.setState({
-            display: this.state.display === 'none' ? 'inline' : 'none'
-        })
-    }
-
-    render() {
-        return (
-            <div>
-                <div style={this.styles}>
-                    <button onClick={() => this.showHide()}>Show</button>
-                </div>
-
-                <div style={this.styles}>
-                    <h1 style={this.state}>Peek-a-boo</h1>
-                </div>
-            </div>
-        )
-    }
+    return (
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <button onClick={() => showHide(!hidden)}>{hidden ? 'Show' : 'Hide'}</button>
+            <h1 style={{display: (hidden ? 'none' : 'inline')}}>Peek-a-boo</h1>
+        </div>
+    )
 }
+
+export default Peekaboo;

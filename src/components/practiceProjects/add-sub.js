@@ -1,31 +1,17 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class AddSub extends Component {
-    constructor() {
-        super();
+const AddSub = () => {
+    const [count, crement] = useState(0);
 
-        this.state = {
-            count: 0
-        }
-
-        this.buttonStyles = {
-            width: "30px"
-        }
-    }
-
-    crement = amount => {
-        this.setState({
-            count: this.state.count + amount
-        });
-    }
-
-    render() {
-        return (
-            <div style={{display: 'flex'}}>
-                <h1 style={{width: '50px'}}>${this.state.count}</h1>
-                <button onClick={() => this.crement(1)} style={this.buttonStyles}>Add</button>
-                <button onClick={() => this.crement(-1)} style={this.buttonStyles}>Sub</button>
+    return (
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <h1 style={{width: '50px'}}>${count}</h1>
+            <div>
+                <button onClick={() => crement(count + 1)} style={{width: "50px"}}>Add</button>
+                <button onClick={() => crement(count - 1)} style={{width: "50px"}}>Sub</button>
             </div>
-        )
-    }
+        </div>
+    )
 }
+
+export default AddSub;

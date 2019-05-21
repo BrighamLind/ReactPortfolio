@@ -1,26 +1,14 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class HelloGoodbye extends Component {
-    constructor() {
-        super();
+const HelloGoodbye = () => {
+    const [toggle, toggleFunction] = useState(true);
 
-        this.state = {
-            toggle: "Hello"
-        }
-    }
-
-    toggleFunction = () => {
-        this.setState({
-            toggle: this.state.toggle === "Hello" ? "Goodbye" : "Hello"
-        })
-    }
-
-    render() {
-        return (
-            <div style={{display: 'flex', flexDirection: 'column'}}>
-                <h1>{this.state.toggle}</h1>
-                <button onClick={() => this.toggleFunction()} style={{alignSelf: 'center', width: '50px'}}>Toggle</button>
-            </div>
-        )
-    }
+    return (
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+            <h1>{toggle ? "Hello" : "Goodbye"}</h1>
+            <button onClick={() => toggleFunction(!toggle)}>Toggle</button>
+        </div>
+    )
 }
+
+export default HelloGoodbye;

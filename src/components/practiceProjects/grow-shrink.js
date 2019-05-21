@@ -1,38 +1,20 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class GrowShrink extends Component {
-    constructor() {
-        super();
+const GrowShrink = () => {
+    const [size, growShrink] = useState(20);
 
-        this.state = {
-            fontSize: 20
-        }
-
-        this.styles = {
-            display: 'flex',
-            justifyContent: 'center'
-        }
-    }
-
-    growShrink = amount => {
-        this.setState({
-            fontSize: this.state.fontSize + amount
-        })
-    }
-
-    render() {
-        return (
+    return (
+        <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
             <div>
-                <div style={this.styles}>
-                    <button onClick={() => this.growShrink(5)} style={{}}>Grow</button>
-                    <button onClick={() => this.growShrink(-5)}>Shrink</button>
-                </div>
-
-                <div style={this.styles}>
-                    <h1 style={ this.state }>{this.state.fontSize}px</h1>
-                </div>
+                <button onClick={() => growShrink(size + 5)}>Grow</button>
+                <button onClick={() => growShrink(size - 5)}>Shrink</button>
             </div>
-        )
-    }
-    
+
+            <div>
+                <h1 style={{fontSize: size}}>{size}px</h1>
+            </div>
+        </div>
+    )
 }
+
+export default GrowShrink;

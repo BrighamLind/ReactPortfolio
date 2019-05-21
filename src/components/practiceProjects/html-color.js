@@ -1,44 +1,35 @@
-import React, { Component } from "react";
+import React, { useState } from "react";
 
-export default class App extends Component {
-  constructor() {
-    super();
-
-    this.state = {
-      text: "",
-      userInput: ""
-    };
-  }
-
-  handleChange = event => {
-    this.setState({
-      [event.target.name]: event.target.value
-    });
-  };
-
-  handleSubmit = event => {
+const HTMLColor = () => {
+  const [inputBox, updateText] = useState("");
+  const [userInput, updateUserInput] = useState("");
+  
+  const handleSubmit = event => {
     event.preventDefault();
-    this.setState({
-      userInput: this.state.text,
-      text: ""
-    });
+    updateUserInput(inputBox),
+    updateText("")
   };
 
-  render() {
-    return (
-      <div>
-        <h1>HTML Color</h1>
-        <form onSubmit={this.handleSubmit}>
-          <input
-            type="text"
-            name="text"
-            value={this.state.text}
-            onChange={this.handleChange}
-          />
-          <button type="submit">Submit</button>
-        </form>
-        <h1 style={{ color: this.state.userInput }}>{this.state.userInput}</h1>
-      </div>
-    );
-  }
+  const handleChange = event => {
+    updateText(event.target.value)
+  };
+
+
+  return (
+    <div style={{display: 'flex', flexDirection: 'column', alignItems: 'center'}}>
+      <h1>HTML Color</h1>
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          name="inputBox"
+          value={inputBox}
+          onChange={handleChange}
+        />
+        <button type="submit">Submit</button>
+      </form>
+      <h1 style={{ color: userInput }}>{userInput}</h1>
+    </div>
+  );
 }
+
+export default HTMLColor;

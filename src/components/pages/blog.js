@@ -8,21 +8,41 @@ export default class Blog extends Component {
         super();
 
         this.state = {
-            blogItems: []
+            blogItems: [],
+            totalCount: 0,
+            currentPage: 0,
+            isLoading: true
         }
 
         this.getBlogItems = this.getBlogItems.bind(this);
+        this.activateInfiniteScroll();
     }
 
+    activateInfiniteScroll() {
+        window.onscroll = () => {
+            if (window.innerHeight + document.documentElement.scrollTop === document.documentElement.offsetHeight ) {
+                console.log("get more posts");
+            }
+        }
+    }
+    
     getBlogItems() {
+        this.setState({
+            currentPage: this.state.currentPage + 1
+        })
+        
         axios
         .get("https://brighamlind.devcamp.space/portfolio/portfolio_blogs",
             { withCredentials: true }
-            ).then(response => {
+            )
+            .then(response => {
                 this.setState({
-                    blogItems: response.data.portfolio_blogs
+                    blogItems: response.data.portfolio_blogs,
+                    totalCount: response.data.meta.total_records,
+                    isLoading: false
                 })
-            }).catch(error => {
+            })
+            .catch(error => {
                 console.log("getBlogItems", error);
         })
     }
@@ -35,9 +55,12 @@ export default class Blog extends Component {
         const blogRecords = this.state.blogItems.map(blogItem => {
             return <BlogItem key={blogItem.id} blogItem={blogItem} />
         })
+
         return (
-            <div>
-                {blogRecords}
+            <div className="blog-container">
+                <div className="content-container">
+                    {blogRecords}
+                </div>
             </div>
         )
     }
