@@ -1,5 +1,6 @@
 import React, { Component } from "react";
 import axios from "axios";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 
 import PortfolioItem from "./portfolio-item";
 
@@ -8,8 +9,7 @@ export default class PortfolioContainer extends Component {
     super();
 
     this.state = {
-      pageTitle: "Welcome to my portfolio!",
-      isLoading: false,
+      isLoading: true,
       data: []
     };
 
@@ -20,19 +20,33 @@ export default class PortfolioContainer extends Component {
   // try to always name clickhandler/etc. functions with something starting with "handle"
   handleFilter(filter) {
     this.setState({
-      data: this.state.data.filter(item => {
-        return item.category === filter;
-      })
+      isLoading: true
     });
+    if (filter === "CLEAR_FILTERS") {
+      this.getPortfolioItems();
+    } else {
+      this.getPortfolioItems(filter);
+    }
   }
 
-  getPortfolioItems() {
+  getPortfolioItems(filter = null) {
     axios
       .get("https://brighamlind.devcamp.space/portfolio/portfolio_items")
       .then(response => {
         this.setState({
-          data: response.data.portfolio_items
+          isLoading: false
         });
+        if (filter) {
+          this.setState({
+            data: response.data.portfolio_items.filter(item => {
+              return item.category === filter;
+            })
+          });
+        } else {
+          this.setState({
+            data: response.data.portfolio_items
+          });
+        }
       })
       .catch(error => {
         console.log("Error: ", error);
@@ -50,23 +64,45 @@ export default class PortfolioContainer extends Component {
   }
 
   render() {
-    if (this.state.isLoading) {
-      return <div>Loading...</div>;
-    }
-
     return (
-      <div className="portfolio-items-wrapper">
-        <button className="btn" onClick={() => this.handleFilter("eCommerce")}>
-          eCommerce
-        </button>
-        <button className="btn" onClick={() => this.handleFilter("Scheduling")}>
-          Scheduling
-        </button>
-        <button className="btn" onClick={() => this.handleFilter("Enterprise")}>
-          Enterprise
-        </button>
+      <div className="homepage-wrapper">
+        <div className="filter-links">
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("eCommerce")}
+          >
+            eCommerce
+          </button>
 
-        {this.portfolioItems()}
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Scheduling")}
+          >
+            Scheduling
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("Enterprise")}
+          >
+            Enterprise
+          </button>
+
+          <button
+            className="btn"
+            onClick={() => this.handleFilter("CLEAR_FILTERS")}
+          >
+            All
+          </button>
+        </div>
+
+        <div className="portfolio-items-wrapper">{this.portfolioItems()}</div>
+
+        {this.state.isLoading ? (
+          <div className="content-loader">
+            <FontAwesomeIcon icon="spinner" spin />
+          </div>
+        ) : null}
       </div>
     );
   }

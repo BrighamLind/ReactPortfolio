@@ -1,0 +1,12 @@
+.homepage-wrapper {
+  display: grid;
+  grid-template-columns: 1fr;
+
+  .filter-links {
+    display: flex;
+
+    .btn {
+      width: 100%;
+    }
+  }
+}

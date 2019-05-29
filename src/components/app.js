@@ -17,13 +17,13 @@ import Auth from "./pages/auth";
 import NoMatch from "./pages/no-match";
 import Icons from "../helpers/icons";
 
-import AddSub from "./practiceProjects/add-sub";
-import HelloGoodbye from "./practiceProjects/hello-goodbye";
-import GrowShrink from "./practiceProjects/grow-shrink";
-import Peekaboo from "./practiceProjects/peekaboo";
-import AlignMe from "./practiceProjects/align-me";
-import Clock from "./practiceProjects/clock";
-import HTMLColor from "./practiceProjects/html-color";
+// import AddSub from "./practiceProjects/add-sub";
+// import HelloGoodbye from "./practiceProjects/hello-goodbye";
+// import GrowShrink from "./practiceProjects/grow-shrink";
+// import Peekaboo from "./practiceProjects/peekaboo";
+// import AlignMe from "./practiceProjects/align-me";
+// import Clock from "./practiceProjects/clock";
+// import HTMLColor from "./practiceProjects/html-color";
 
 export default class App extends Component {
   constructor(props) {
@@ -133,19 +133,27 @@ export default class App extends Component {
                 )}
               />
 
-              <Route path="/b/:slug" component={BlogDetail} />
+              <Route
+                path="/b/:slug"
+                render={props => (
+                  <BlogDetail
+                    {...props}
+                    loggedInStatus={this.state.loggedInStatus}
+                  />
+                )}
+              />
               {this.state.loggedInStatus === "LOGGED_IN"
                 ? this.authorizedPages()
                 : null}
               <Route path="/portfolio/:slug" component={PortfolioDetail} />
 
-              <Route path="/add-sub" component={AddSub} />
+              {/* <Route path="/add-sub" component={AddSub} />
               <Route path="/hello-goodbye" component={HelloGoodbye} />
               <Route path="/grow-shrink" component={GrowShrink} />
               <Route path="/peekaboo" component={Peekaboo} />
               <Route path="/align-me" component={AlignMe} />
               <Route path="/clock" component={Clock} />
-              <Route path="/html-color" component={HTMLColor} />
+              <Route path="/html-color" component={HTMLColor} /> */}
               <Route component={NoMatch} />
             </Switch>
           </div>

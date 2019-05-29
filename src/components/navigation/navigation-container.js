@@ -61,7 +61,7 @@ const NavigationContainer = props => {
           ? dynamicLink("/portfolio-manager", "Portfolio Manager")
           : null}
 
-        <div className="nav-link-wrapper">
+        {/* <div className="nav-link-wrapper">
           <NavLink to="/add-sub" activeClassName="nav-link-active">
             Add Sub
           </NavLink>
@@ -101,7 +101,7 @@ const NavigationContainer = props => {
           <NavLink to="/html-color" activeClassName="nav-link-active">
             HTML Color
           </NavLink>
-        </div>
+        </div> */}
 
         {false ? <button>Add Blog</button> : null}
       </div>
