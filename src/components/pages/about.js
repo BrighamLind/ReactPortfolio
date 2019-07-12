@@ -14,30 +14,24 @@ export default function() {
       />
 
       <div className="right-column">
-        Lorem ipsum dolor sit amet consectetur adipisicing elit. Doloremque
-        reiciendis ipsa repudiandae, repellat sint et perspiciatis quod amet
-        alias veniam consequuntur esse harum quasi non quia expedita aliquam
-        atque ab. Vitae voluptate consequuntur aperiam optio placeat quis
-        asperiores eius incidunt similique doloribus blanditiis dolorem non
-        nostrum omnis, corporis aut et, in labore! Saepe consequuntur quasi
-        facere iure ducimus libero doloremque. Delectus dolore, ea impedit
-        officiis temporibus cum reiciendis quis ratione, sapiente praesentium
-        labore, nulla facere explicabo modi quisquam? Vel, provident sapiente
-        error sed quaerat laborum autem voluptatibus ea dolores omnis. Aliquam
-        dicta, harum nostrum accusamus maiores reiciendis. Quaerat, nobis
-        mollitia eveniet veniam incidunt facere quos iusto fuga sit ab ut? Nisi
-        corporis facere pariatur ea asperiores quo dolores hic incidunt.
-        Expedita voluptas repellendus natus facere explicabo eos magnam porro
-        autem qui dolorum debitis consequatur eum laboriosam quo dicta unde
-        odio, sed maiores. Illo dolor, recusandae iste ullam exercitationem
-        delectus? Molestias. Architecto voluptatibus, consequatur molestiae
-        repellendus consectetur cumque harum sit beatae! Commodi veniam labore
-        culpa, voluptatibus reiciendis quae sapiente nihil est, delectus officia
-        possimus quam placeat perferendis perspiciatis fugit ducimus quasi.
-        Praesentium laboriosam ullam officiis aut. Recusandae laudantium
-        similique enim saepe cumque. Ducimus placeat facere alias veniam dolor,
-        qui sit numquam libero dolorum quae adipisci reprehenderit consequatur
-        voluptatem illum voluptate minima.
+        <h1 className="about-greeting">Hi there!</h1>
+        <p className="right-column-text-indent">
+          My innate fascination with engineering leads me to continually
+          simplify, streamline, and refactor again and again. This workflow
+          gives crucial structure in regards to the guiding principles in my
+          life such as consistent personal development.
+        </p>
+        <p className="right-column-text-indent">
+          With these guiding principles, I strive to give my best to everyone
+          around me and constantly be a positive influence in the lives of
+          others. I value hard work, service, and am highly driven.
+        </p>
+        <p className="right-column-text-indent">
+          In regards to the future, I aspire to work on the cutting edge of
+          innovation and development and have my sights set on being a pioneer
+          in the holographic industry by furthering current development and
+          integrating machine learning.
+        </p>
       </div>
     </div>
   );

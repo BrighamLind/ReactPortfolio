@@ -11,6 +11,16 @@
     flex-direction: column;
     padding: 100px;
 
+    .right-column-text-indent {
+      margin: 5px 0px;
+      text-indent: 20px;
+    }
+
+    .about-greeting {
+      margin: 8px 0px;
+      text-align: center;
+    }
+
     .contact-bullet-points {
       @include base-grid();
       grid-template-columns: 1fr;
