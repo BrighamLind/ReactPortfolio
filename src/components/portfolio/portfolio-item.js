@@ -45,7 +45,6 @@ export default class PortfolioItem extends Component {
             <div className="logo-wrapper">
               <img src={logo_url} />
             </div>
-
             <div className="subtitle">{description}</div>
           </div>
         </div>

@@ -4,6 +4,7 @@
 
   .portfolio-item-wrapper {
     position: relative;
+    overflow: hidden;
 
     .portfolio-img-background {
       background-size: cover;
@@ -21,29 +22,37 @@
       justify-content: center;
       align-items: center;
       height: 100%;
+      width: 100%;
       text-align: center;
-      padding-left: 100px;
-      padding-right: 100px;
+      transition: all 0.75s ease-in-out;
+      transform: translateY(33px);
+
+      &:hover {
+        transform: translateY(0px);
+      }
+
+      &:hover .subtitle {
+        color: $teal;
+        font-weight: 400;
+      }
+
+      .logo-wrapper {
+        padding: 0px 100px;
+      }
+
+      .logo-wrapper img {
+        width: 50%;
+      }
 
       .subtitle {
-        transition: 1s ease-in-out;
+        margin-top: 20px;
+        transition: 0.75s ease-in-out;
         color: transparent;
       }
     }
-
-    .img-text-wrapper:hover .subtitle {
-      color: $teal;
-      font-weight: 400;
-    }
-
-    .logo-wrapper img {
-      width: 50%;
-      margin-bottom: 20px;
+    .image-blur {
+      transition: 1s;
+      filter: brightness(10%);
     }
   }
-}
-
-.image-blur {
-  transition: 1s;
-  filter: brightness(10%);
 }
