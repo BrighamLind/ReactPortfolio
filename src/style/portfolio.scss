@@ -12,6 +12,12 @@
       background-repeat: no-repeat;
       height: 350px;
       width: 100%;
+      transition: 0.75s ease-in-out;
+    }
+
+    .image-blur {
+      transition: 0.75s ease-in-out;
+      filter: brightness(10%);
     }
 
     .img-text-wrapper {
@@ -24,7 +30,7 @@
       height: 100%;
       width: 100%;
       text-align: center;
-      transition: all 0.75s ease-in-out;
+      transition: 0.75s ease-in-out;
       transform: translateY(33px);
 
       &:hover {
@@ -49,10 +55,6 @@
         transition: 0.75s ease-in-out;
         color: transparent;
       }
-    }
-    .image-blur {
-      transition: 1s;
-      filter: brightness(10%);
     }
   }
 }
