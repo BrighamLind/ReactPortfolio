@@ -29,8 +29,8 @@ export default function() {
         <p className="right-column-text-indent">
           In regards to the future, I aspire to work on the cutting edge of
           innovation and development and have my sights set on being a pioneer
-          in the holographic industry by furthering current development and
-          integrating machine learning.
+          in the holographic and medical industries by furthering current
+          development and integrating machine learning.
         </p>
       </div>
     </div>
