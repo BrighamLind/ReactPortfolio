@@ -37,7 +37,7 @@ export default function() {
               <FontAwesomeIcon icon="map-marked-alt" />
             </div>
 
-            <div className="text">Saratoga Springs, UT</div>
+            <div className="text">Provo, UT</div>
           </div>
         </div>
       </div>
