@@ -16,22 +16,6 @@ export default function() {
 
       <div className="right-column">
         <div className="contact-bullet-points">
-          {/* <div className="bullet-point-group">
-            <div className="icon">
-              <FontAwesomeIcon icon="phone" />
-            </div>
-
-            <div className="text">(385)-230-1665</div>
-          </div>
-
-          <div className="bullet-point-group">
-            <div className="icon">
-              <FontAwesomeIcon icon="envelope" />
-            </div>
-
-            <div className="text">lindbrigham@gmail.com</div>
-          </div> */}
-
           <div className="bullet-point-group">
             <div className="icon">
               <FontAwesomeIcon icon="envelope" />
