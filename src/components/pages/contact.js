@@ -16,7 +16,7 @@ export default function() {
 
       <div className="right-column">
         <div className="contact-bullet-points">
-          <div className="bullet-point-group">
+          {/* <div className="bullet-point-group">
             <div className="icon">
               <FontAwesomeIcon icon="phone" />
             </div>
@@ -30,6 +30,20 @@ export default function() {
             </div>
 
             <div className="text">lindbrigham@gmail.com</div>
+          </div> */}
+
+          <div className="bullet-point-group">
+            <div className="icon">
+              <FontAwesomeIcon icon="envelope" />
+            </div>
+
+            <a
+              className="text"
+              href="https://www.linkedin.com/in/brigham-l-37548030"
+              target="_blank"
+            >
+              View my LinkedIn
+            </a>
           </div>
 
           <div className="bullet-point-group">
@@ -37,7 +51,7 @@ export default function() {
               <FontAwesomeIcon icon="map-marked-alt" />
             </div>
 
-            <div className="text">Provo, UT</div>
+            <div className="text">Orem, UT</div>
           </div>
         </div>
       </div>

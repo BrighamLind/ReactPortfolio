@@ -34,6 +34,16 @@
           color: $teal;
         }
 
+        a {
+          text-decoration: none;
+          color: deepskyblue;
+          transition: 0.3s all ease-in-out;
+
+          &:hover {
+            color: #0099cc;
+          }
+        }
+
         .text {
           font-size: 1.5em;
           font-weight: 900;
